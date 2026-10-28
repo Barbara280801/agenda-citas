@@ -1,50 +1,32 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Agenda de Citas Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Simplicidad de alcance
+La aplicación se limita a registrar citas, mostrar las próximas citas y cambiar su estado entre `pendiente` y `completada`. No se incorporarán backend, autenticación, cuentas de usuario ni funcionalidades ajenas a la agenda sin una enmienda explícita de esta constitución.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Validación de datos
+Toda cita debe tener nombre del cliente, fecha, hora y motivo. Si falta cualquier campo, la cita no se guardará y la interfaz debe indicar claramente qué dato falta. El estado solo podrá ser `pendiente` o `completada`; cualquier otro valor será rechazado.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Persistencia local
+Las citas se almacenarán en `localStorage` del navegador y se restaurarán al cargar la aplicación. Una recarga no debe eliminar datos válidos previamente guardados; los errores de lectura o datos corruptos deben gestionarse sin bloquear el uso de la aplicación.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Modularidad y claridad
+La implementación usará React, JavaScript y CSS, con componentes de React separados por responsabilidad y la lógica de validación, ordenación, persistencia y cambio de estado separada en funciones reutilizables. La interfaz y los mensajes visibles estarán en español.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Calidad verificable
+Cada requisito debe incluir criterios de aceptación observables y cada funcionalidad debe tener pruebas. Como mínimo, se comprobará el rechazo de campos vacíos, la indicación del dato faltante, la ordenación por fecha y hora, el cambio de estado y la persistencia tras recargar. No se considerará terminada una funcionalidad que no pueda verificarse mediante una prueba o comprobación reproducible.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Restricciones de producto
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+La interfaz debe ser responsive y usable en pantallas pequeñas y grandes. Las próximas citas se mostrarán ordenadas cronológicamente por fecha y hora. La solución debe ejecutarse en el navegador sin depender de un servidor propio ni de servicios externos para guardar las citas.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Puertas de calidad
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Antes de considerar completada una especificación o implementación, se revisará que cada requisito tenga un criterio de aceptación verificable, que los estados y validaciones respeten esta constitución, que la persistencia sobreviva a una recarga y que la vista sea responsive. Las pruebas deben cubrir los flujos principales y los casos de error relevantes.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+Esta constitución prevalece sobre decisiones de implementación que entren en conflicto con sus principios. Toda modificación deberá actualizar este documento cuando cambie el alcance, las reglas de validación, la persistencia, el stack o los criterios de calidad. Las revisiones de código y los planes de trabajo deben verificar explícitamente el cumplimiento de los principios aplicables; cualquier complejidad adicional debe justificarse por un requisito concreto.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-10-28 | **Last Amended**: 2026-10-28

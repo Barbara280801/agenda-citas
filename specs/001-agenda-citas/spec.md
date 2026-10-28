@@ -113,7 +113,7 @@ Como persona responsable del negocio, quiero que mis citas sigan disponibles al 
 
 - **SC-001**: Una persona puede registrar una cita válida en menos de 60 segundos desde que abre la agenda.
 - **SC-002**: El 100% de los intentos de guardar citas con campos obligatorios vacíos se rechaza y muestra los campos faltantes.
-- **SC-003**: El 100% de las citas visibles se presenta en orden ascendente de fecha y hora.
+- **SC-003**: El 100% de las citas futuras se presenta en orden ascendente de fecha y hora, y el 100% de las citas pasadas en orden descendente de fecha y hora dentro de su sección.
 - **SC-004**: El 100% de las citas registradas y sus estados permanece disponible después de recargar la página en el mismo navegador.
 - **SC-005**: Una persona puede cambiar el estado de una cita en una sola acción y verificar visualmente el nuevo estado.
 - **SC-006**: Las acciones de registrar, consultar y cambiar el estado siguen siendo utilizables en una pantalla móvil sin desplazamiento horizontal.
